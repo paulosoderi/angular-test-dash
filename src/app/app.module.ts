@@ -2,30 +2,32 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { SolutionListComponent } from './solution-list/solution-list.component';
+import { SolutionDetailsComponent } from './solution-details/solution-details.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-    ])
+      { path: '', component: SolutionListComponent },
+      { path: 'solutions/:solutionId', component: SolutionDetailsComponent },
+    ]),
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
-    ProductListComponent
+    SolutionListComponent,
+    SolutionDetailsComponent,
   ],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}
 
 /*
 Copyright Google LLC. All Rights Reserved.
